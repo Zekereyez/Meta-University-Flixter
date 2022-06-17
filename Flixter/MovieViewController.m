@@ -8,6 +8,7 @@
 #import "MovieViewController.h"
 #import "MovieCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsViewController.h"
 
 @interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -52,9 +53,9 @@
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                
                NSLog(@"%@", dataDictionary);// log an object with the %@ formatter.
-               for (NSDictionary *myArray in self.myArray) {
+               //for (NSDictionary *myArray in self.myArray) {
 //                   NSLog(@"%@", myArray[@"title"]);
-               }
+               //}
 
                // TODO: Get the array of movies
                self.myArray = dataDictionary[@"results"];
@@ -85,21 +86,29 @@
     // Full poster image url
     NSString *fullPosterURL = [baseURLString stringByAppendingString:urlString];
     NSURL *url = [NSURL URLWithString:fullPosterURL];
-//    cell.movieImageView.image = nil;
+    // Resets image to get rid of flickering
+    cell.movieImageView.image = nil;
+    // Sets the movie poster image
     [cell.movieImageView setImageWithURL:url];
     
     
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+    DetailsViewController *detailsVC = [segue destinationViewController];
+    // Will act as the key for which cell info will ve sent over
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    
     // Pass the selected object to the new view controller.
+    // then is accessible to us to use and implement
+    detailsVC.detailsDict = self.myArray[indexPath.row];
+    
 }
-*/
 
 @end
