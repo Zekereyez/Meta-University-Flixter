@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="350" id="vWt-sf-NqN" customClass="MovieCell" customModule="Flixter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="350" id="vWt-sf-NqN" customClass="MovieCell">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vWt-sf-NqN" id="egT-fh-pqn">
@@ -49,7 +49,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="movieImageView" destination="c3Z-MR-HKW" id="k2v-yC-wn9"/>
+                                            <outlet property="movieImageView" destination="c3Z-MR-HKW" id="IJX-8q-lAk"/>
                                             <outlet property="synopsisLabel" destination="OC5-IB-74p" id="Mz7-bd-Guz"/>
                                             <outlet property="titleLabel" destination="mZ2-uP-WQB" id="9Qb-Hi-eD8"/>
                                             <segue destination="i4F-Aj-LgG" kind="show" id="F2W-72-Ead"/>

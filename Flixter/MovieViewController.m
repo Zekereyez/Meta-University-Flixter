@@ -86,7 +86,7 @@
     NSString *fullPosterURL = [baseURLString stringByAppendingString:urlString];
     NSURL *url = [NSURL URLWithString:fullPosterURL];
 //    cell.movieImageView.image = nil;
-//    [cell.movieImageView setImageWithURL:url];
+    [cell.movieImageView setImageWithURL:url];
     
     
     return cell;
