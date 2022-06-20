@@ -20,6 +20,8 @@
 		9E8CB3D3285A5AAA00B851DE /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB3D2285A5AAA00B851DE /* MovieViewController.m */; };
 		9E8CB426285BC59700B851DE /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB425285BC59700B851DE /* MovieCell.m */; };
 		9E8CB429285BEAC800B851DE /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8CB428285BEAC800B851DE /* DetailsViewController.m */; };
+		9EDE74FE2861276200B76422 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE74FD2861276200B76422 /* GridViewController.m */; };
+		9EDE7504286128B200B76422 /* MovieGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE7503286128B200B76422 /* MovieGridCell.m */; };
 		AD11F2B106AC412129770BAD /* Pods_Flixter_FlixterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9103BA378A1E89C48E8783F4 /* Pods_Flixter_FlixterUITests.framework */; };
 		D61485C67980DAFD25192C3A /* Pods_Flixter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BB39215FC104522F6ACB73 /* Pods_Flixter.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,10 @@
 		9E8CB425285BC59700B851DE /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		9E8CB427285BEAC800B851DE /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		9E8CB428285BEAC800B851DE /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		9EDE74FC2861276200B76422 /* GridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
+		9EDE74FD2861276200B76422 /* GridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
+		9EDE7502286128B200B76422 /* MovieGridCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieGridCell.h; sourceTree = "<group>"; };
+		9EDE7503286128B200B76422 /* MovieGridCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieGridCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,10 @@
 				9E8CB39F285A4D7700B851DE /* SceneDelegate.h */,
 				9E8CB3A0285A4D7700B851DE /* SceneDelegate.m */,
 				9E8CB3A5285A4D7700B851DE /* Main.storyboard */,
+				9EDE74FC2861276200B76422 /* GridViewController.h */,
+				9EDE74FD2861276200B76422 /* GridViewController.m */,
+				9EDE7502286128B200B76422 /* MovieGridCell.h */,
+				9EDE7503286128B200B76422 /* MovieGridCell.m */,
 				9E8CB427285BEAC800B851DE /* DetailsViewController.h */,
 				9E8CB428285BEAC800B851DE /* DetailsViewController.m */,
 				9E8CB424285BC59700B851DE /* MovieCell.h */,
@@ -424,9 +434,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EDE7504286128B200B76422 /* MovieGridCell.m in Sources */,
 				9E8CB39E285A4D7700B851DE /* AppDelegate.m in Sources */,
 				9E8CB426285BC59700B851DE /* MovieCell.m in Sources */,
 				9E8CB3AF285A4D7800B851DE /* main.m in Sources */,
+				9EDE74FE2861276200B76422 /* GridViewController.m in Sources */,
 				9E8CB429285BEAC800B851DE /* DetailsViewController.m in Sources */,
 				9E8CB3A1285A4D7700B851DE /* SceneDelegate.m in Sources */,
 				9E8CB3D3285A5AAA00B851DE /* MovieViewController.m in Sources */,

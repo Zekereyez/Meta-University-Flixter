@@ -1,54 +1,30 @@
 //
-//  MovieViewController.m
+//  GridViewController.m
 //  Flixter
 //
-//  Created by Zeke Reyes on 6/15/22.
+//  Created by Zeke Reyes on 6/20/22.
 //
 
-#import "MovieViewController.h"
-#import "MovieCell.h"
+#import "GridViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
+#import "MovieGridCell.h"
 
-@interface MovieViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface GridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *myArray;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-//remember when a property is set, you must call it with self.myArray
 @end
 
-@implementation MovieViewController
-
-int totalColors = 100;
-- (UIColor*)colorForIndexPath:(NSIndexPath *) indexPath{
-    if(indexPath.row >= totalColors){
-        return UIColor.blackColor;    // return black if we get an unexpected row index
-    }
-    
-    CGFloat hueValue = (CGFloat)(indexPath.row)/(CGFloat)(totalColors);
-    return [UIColor colorWithHue:hueValue saturation:1.0 brightness:1.0 alpha:1.0];
-}
+@implementation GridViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.activityIndicator startAnimating];
-    
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    self.tableView.rowHeight = 350;
-    
+    // Do any additional setup after loading the view.
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    //Call movie function to display
     [self fetchMovies];
-    
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:self.refreshControl atIndex:0];
-//    [self.tableView addSubview:self.refreshControl];
-    
-    
-    
 }
 
 - (void) fetchMovies {
@@ -87,57 +63,54 @@ int totalColors = 100;
 
                // TODO: Get the array of movies
                self.myArray = dataDictionary[@"results"];
-               [self.tableView reloadData];
+               [self.collectionView reloadData];
                
            }
-        [self.refreshControl endRefreshing];
-        [self.activityIndicator stopAnimating];
        }];
     [task resume];
 }
 
-
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.myArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    MovieGridCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieGridCell" forIndexPath:indexPath];
     
-   // Get info for movie
-    NSString *title = self.myArray[indexPath.row][@"title"];
-    cell.titleLabel.text = title;
-    cell.synopsisLabel.text = self.myArray[indexPath.row][@"overview"];
+    NSDictionary *movie = self.myArray[indexPath.row];
     // Base url string
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *urlString = self.myArray[indexPath.row][@"poster_path"];
+    NSString *fullPosterURL = [baseURLString stringByAppendingString:movie[@"poster_path"]];
     
-    // Full poster image url
-    NSString *fullPosterURL = [baseURLString stringByAppendingString:urlString];
-    NSURL *url = [NSURL URLWithString:fullPosterURL];
-    // Resets image to get rid of flickering
-    cell.movieImageView.image = nil;
+    NSURL *posterUrl = [NSURL URLWithString:fullPosterURL];
+    
+    //NSURL *url = [NSURL URLWithString:fullPosterURL];
     // Sets the movie poster image
-    [cell.movieImageView setImageWithURL:url];
-    
+    [cell.movieImageView setImageWithURL:posterUrl];
     
     return cell;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    int totalwidth = self.collectionView.bounds.size.width;
+    int numberOfCellsPerRow = 3;
+    int widthDimensions = (CGFloat)(totalwidth / numberOfCellsPerRow);
+    int heightDimensions = widthDimensions * 1.2;
+    return CGSizeMake(widthDimensions, heightDimensions);
+}
 
+
+
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-    DetailsViewController *detailsVC = [segue destinationViewController];
-    // Will act as the key for which cell info will ve sent over
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    
     // Pass the selected object to the new view controller.
-    // then is accessible to us to use and implement
-    detailsVC.detailsDict = self.myArray[indexPath.row];
-    
 }
+*/
+
+
 
 @end

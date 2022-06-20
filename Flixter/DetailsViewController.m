@@ -6,6 +6,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *detailSynopsis;
@@ -30,9 +31,9 @@
     NSString *fullPosterURL = [baseURLString stringByAppendingString:urlString];
     NSURL *url = [NSURL URLWithString:fullPosterURL];
     // Resets image to get rid of flickering
-    self.movieDetailsImage = nil;
+    self.movieDetailsImage.image = nil;
     // Sets the movie poster image
-    //[self.movieDetailsImage setImageWithURL:url];
+    [self.movieDetailsImage setImageWithURL:url];
 }
 
 /*
