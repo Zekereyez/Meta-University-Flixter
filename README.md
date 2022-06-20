@@ -2,7 +2,7 @@
 
 Flixter is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: 20 hours spent in total
+Time spent: 25 hours spent in total
 
 ## User Stories
 
@@ -41,11 +41,14 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<img src='https://imgur.com/a/I4inL2N' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+Ran into a outlet bug which was the most significant roadblock/challenge for me in this project.
 
 ## Credits
 
