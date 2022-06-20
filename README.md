@@ -42,9 +42,6 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 https://imgur.com/a/I4inL2N
 
-
-<img src="https://imgur.com/a/I4inL2N" title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
 ## Notes
 
 Describe any challenges encountered while building the app.
